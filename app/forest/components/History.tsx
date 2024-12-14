@@ -56,9 +56,8 @@ export default function History() {
                 `,
             }}
         >
-            <h1 className="text-3xl font-bold mb-6 text-white">商店街の年輪</h1>
+            <h1 className="text-3xl font-bold mb-6 text-white">{initialData.name}の年輪</h1>
             <div className="w-full max-w-4xl bg-white rounded-lg shadow-md p-6 mb-8">
-                <h2 className="text-2xl font-semibold mb-4">{initialData.name}</h2>
                 <div className="relative border-l-4 border-blue-500 pl-8">
                     {initialData.articles.map((article) => (
                         <div key={article.id} className="mb-6 flex items-start relative">

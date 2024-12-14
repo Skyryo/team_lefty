@@ -8,7 +8,7 @@ import History from "./components/History";
 const initialData = [
   {
     id: 1,
-    name: "高円寺商店街",
+    name: "高円寺純情商店街",
     shops: [
       { id: 1, name: "株式会社小杉湯", inputs: 10, posts: 5, mediaMentions: 2 },
       { id: 2, name: "SOCIO", inputs: 15, posts: 8, mediaMentions: 3 },
