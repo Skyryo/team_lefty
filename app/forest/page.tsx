@@ -36,6 +36,7 @@ export default function ShoppingDistrictForest() {
                     await fetchShopData(shop.id); // shop_idごとにAPI呼び出し
                 }
             }
+            setLoading(false);
         };
 
         fetchAllShops();
@@ -71,6 +72,7 @@ export default function ShoppingDistrictForest() {
 
   const [districts, setDistricts] = useState(initialData);
   const [currentDistrictId, setCurrentDistrictId] = useState(1);
+  const [loading, setLoading] = useState(true); // ローディング状態を管理
 
   // useEffect(() => {
   //   //setIntervalを用いて、inputs, posts, mediaMentionsを１ずつに増加する処理を実装
@@ -92,6 +94,14 @@ export default function ShoppingDistrictForest() {
   // }, []);
 
   const currentDistrict = districts.find((d) => d.id === currentDistrictId);
+
+    if (loading) {
+        return (
+            <div className="min-h-screen flex flex-col items-center justify-center">
+                <h1 className="text-2xl font-bold text-white">Loading...</h1>
+            </div>
+        );
+    }
 
   return (
       <>
