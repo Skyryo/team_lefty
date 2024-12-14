@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ShoppingDistrictSelector from "./components/ShoppingDistrict";
 import Forest from "./components/Forest";
 
@@ -28,6 +28,25 @@ const initialData = [
 export default function ShoppingDistrictForest() {
   const [districts, setDistricts] = useState(initialData);
   const [currentDistrictId, setCurrentDistrictId] = useState(1);
+
+  useEffect(() => {
+    //setIntervalを用いて、inputs, posts, mediaMentionsを１ずつに増加する処理を実装
+    const interval = setInterval(() => {
+      setDistricts((prev) =>
+        prev.map((d) => ({
+          ...d,
+          shops: d.shops.map((s) => ({
+            ...s,
+            inputs: s.inputs + 1,
+            posts: s.posts + 1,
+            mediaMentions: s.mediaMentions + 1,
+          })),
+        }))
+      );
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const currentDistrict = districts.find((d) => d.id === currentDistrictId);
 
