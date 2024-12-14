@@ -1,50 +1,73 @@
 "use client";
 
-import { useSpring, animated } from "@react-spring/web";
+import React from "react";
 
 export default function Tree({ shop }) {
   const growth = calculateGrowth(shop);
 
-  const treeStyle = useSpring({
-    height: `${50 + growth * 1.5}px`,
-    width: `${30 + growth * 0.8}px`,
-    config: { tension: 300, friction: 10 },
-  });
+  // 成長度に応じた画像の選択
+  let treeImage;
+  if (growth < 10) {
+    treeImage = "/tree-0.png"; // 芽の状態
+  } else if (growth < 20) {
+    treeImage = "/tree-1.png";
+  } else if (growth < 30) {
+    treeImage = "/tree-2.png";
+  } else if (growth < 40) {
+    treeImage = "/tree-3.png";
+  } else if (growth < 50) {
+    treeImage = "/tree-4.png";
+  } else if (growth < 60) {
+    treeImage = "/tree-5.png";
+  } else if (growth < 70) {
+    treeImage = "/tree-6.png";
+  } else if (growth < 80) {
+    treeImage = "/tree-7.png";
+  } else if (growth < 90) {
+    treeImage = "/tree-8.png";
+  } else {
+    treeImage = "/tree-9.png"; // 最大の成長状態
+  }
 
   return (
-    <div className="bg-sky-100 p-4 rounded-lg">
-      <h3 className="text-lg font-semibold mb-2">{shop.name}</h3>
-      <div className="relative h-64">
-        <animated.div
-          style={treeStyle}
-          className="absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-gradient-to-t from-green-800 to-green-400"
-        >
-          <div className="absolute bottom-0 left-1/2 w-4 h-1/3 bg-brown-600 transform -translate-x-1/2" />
-          <div className="absolute bottom-1/3 left-0 w-full h-2/3">
-            <svg
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-              className="w-full h-full"
-            >
-              <path
-                d="M50 0 L0 100 H100 Z"
-                fill="currentColor"
-                className="text-green-600"
-              />
-            </svg>
-          </div>
-        </animated.div>
+    <div
+      className="p-6 rounded-lg"
+      style={{ backgroundColor: "#F6F6F6" }} // 背景色を設定
+    >
+      <h3 className="text-xl font-bold text-gray-800 mb-4">{shop.name}</h3>
+      <div
+        className="h-96 w-60 rounded-lg overflow-hidden flex items-center justify-center"
+        style={{
+          backgroundColor: "#F6F6F6", // 背景色を画像と一致
+        }}
+      >
+        {/* 現在の木の状態を画像で表示 */}
+        <img
+          src={treeImage}
+          alt="Tree"
+          className="object-contain h-full w-full"
+          style={{
+            backgroundColor: "#F6F6F6", // 背景色を画像周辺と統一
+          }}
+        />
       </div>
-      <div className="mt-2 text-sm">
-        <p>インプ数: {shop.inputs}</p>
-        <p>投稿数: {shop.posts}</p>
-        <p>メディア掲載: {shop.mediaMentions}</p>
+      <div className="mt-4 text-sm text-gray-600">
+        <p>
+          インプ数: <span className="font-semibold">{shop.inputs}</span>
+        </p>
+        <p>
+          投稿数: <span className="font-semibold">{shop.posts}</span>
+        </p>
+        <p>
+          メディア掲載:{" "}
+          <span className="font-semibold">{shop.mediaMentions}</span>
+        </p>
       </div>
     </div>
   );
 }
 
+// 成長度を計算する関数
 function calculateGrowth(shop) {
-  // 成長度の計算（例: インプ数、投稿数、メディア掲載数の合計）
   return shop.inputs + shop.posts * 2 + shop.mediaMentions * 3;
 }
