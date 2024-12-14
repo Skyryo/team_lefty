@@ -3,15 +3,16 @@
 import { useEffect, useState } from "react";
 import ShoppingDistrictSelector from "./components/ShoppingDistrict";
 import Forest from "./components/Forest";
+import History from "./components/History";
 
 const initialData = [
   {
     id: 1,
-    name: "中央商店街",
+    name: "高円寺純情商店街",
     shops: [
-      { id: 1, name: "八百屋", inputs: 100, posts: 5, mediaMentions: 2 },
-      { id: 2, name: "パン屋", inputs: 15, posts: 8, mediaMentions: 3 },
-      { id: 3, name: "魚屋", inputs: 8, posts: 4, mediaMentions: 1 },
+      { id: 1, name: "株式会社小杉湯", inputs: 10, posts: 5, mediaMentions: 2 },
+      { id: 2, name: "SOCIO", inputs: 15, posts: 8, mediaMentions: 3 },
+      { id: 3, name: "コクテイル書房", inputs: 8, posts: 4, mediaMentions: 1 },
     ],
   },
   {
@@ -51,19 +52,22 @@ export default function ShoppingDistrictForest() {
   const currentDistrict = districts.find((d) => d.id === currentDistrictId);
 
   return (
-    <div
-      className="min-h-screen flex flex-col items-center justify-center p-4"
-      style={{ backgroundColor: "rgb(41, 76, 122)" }} // 背景色を直接指定
-    >
-      <h1 className="text-4xl font-bold mb-8 text-white">商店街の森</h1>
-      <div className="bg-white rounded-lg shadow-xl p-6 w-full max-w-4xl">
-        <ShoppingDistrictSelector
-          districts={districts}
-          currentDistrictId={currentDistrictId}
-          onSelectDistrict={setCurrentDistrictId}
-        />
-        <Forest district={currentDistrict} />
-      </div>
-    </div>
+      <>
+        <div
+          className="min-h-screen flex flex-col items-center justify-center p-4"
+          style={{ backgroundColor: "rgb(41, 76, 122)" }} // 背景色を直接指定
+        >
+          <h1 className="text-4xl font-bold mb-8 text-white">商店街の森</h1>
+          <div className="bg-white rounded-lg shadow-xl p-6 w-full max-w-4xl">
+            <ShoppingDistrictSelector
+              districts={districts}
+              currentDistrictId={currentDistrictId}
+              onSelectDistrict={setCurrentDistrictId}
+            />
+            <Forest district={currentDistrict} />
+          </div>
+        </div>
+        <History/>
+      </>
   );
 }

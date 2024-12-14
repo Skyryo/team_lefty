@@ -1,9 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 export default function Tree({ shop }) {
-  const growth = calculateGrowth(shop);
+  const [likes, setLikes] = useState(0); // いいねの状態を管理
+
+  // 成長度を計算する関数
+  const growth = calculateGrowth(shop) + likes; // いいねの数を成長度に加算
 
   // 成長度に応じた画像の選択
   let treeImage;
@@ -62,6 +65,18 @@ export default function Tree({ shop }) {
           メディア掲載:{" "}
           <span className="font-semibold">{shop.mediaMentions}</span>
         </p>
+        <p>
+          いいね数: <span className="font-semibold">{likes}</span>
+        </p>
+      </div>
+      {/* いいねボタン */}
+      <div className="mt-4 flex justify-center">
+        <button
+          onClick={() => setLikes((prevLikes) => prevLikes + 1)} // いいねを1増やす
+          className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600"
+        >
+          👍 いいね
+        </button>
       </div>
     </div>
   );
