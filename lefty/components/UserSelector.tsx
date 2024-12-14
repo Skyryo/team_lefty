@@ -1,25 +1,21 @@
-import { User } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+import { User } from "@/components/ui/avatar"
+import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { ChevronDown } from "lucide-react";
+} from "@/components/ui/dropdown-menu"
+import { ChevronDown } from 'lucide-react'
 
 interface UserSelectorProps {
-  users: { id: number; name: string }[];
-  currentUserId: number;
-  onSelectUser: (userId: number) => void;
+  users: { id: number; name: string }[]
+  currentUserId: number
+  onSelectUser: (userId: number) => void
 }
 
-export default function UserSelector({
-  users,
-  currentUserId,
-  onSelectUser,
-}: UserSelectorProps) {
-  const currentUser = users.find((user) => user.id === currentUserId);
+export default function UserSelector({ users, currentUserId, onSelectUser }: UserSelectorProps) {
+  const currentUser = users.find(user => user.id === currentUserId)
 
   return (
     <div className="mb-4">
@@ -32,15 +28,13 @@ export default function UserSelector({
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-full">
           {users.map((user) => (
-            <DropdownMenuItem
-              key={user.id}
-              onSelect={() => onSelectUser(user.id)}
-            >
+            <DropdownMenuItem key={user.id} onSelect={() => onSelectUser(user.id)}>
               {user.name}
             </DropdownMenuItem>
           ))}
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
-  );
+  )
 }
+

@@ -1,35 +1,35 @@
-"use client";
+'use client'
 
-import { useState, useEffect } from "react";
-import Tree from "./components/Tree";
-import NutrientInput from "./components/NutrientInput";
-import UserSelector from "./components/UserSelector";
+import { useState, useEffect } from 'react'
+import Tree from '../components/Tree'
+import NutrientInput from '../components/NutrientInput'
+import UserSelector from '../components/UserSelector'
 
 interface User {
-  id: number;
-  name: string;
-  posts: number;
-  light: number;
-  reactions: number;
+  id: number
+  name: string
+  posts: number
+  light: number
+  reactions: number
 }
 
 export default function GrowthGame() {
   const [users, setUsers] = useState<User[]>([
-    { id: 1, name: "ユーザー1", posts: 0, light: 0, reactions: 0 },
-    { id: 2, name: "ユーザー2", posts: 0, light: 0, reactions: 0 },
-    { id: 3, name: "ユーザー3", posts: 0, light: 0, reactions: 0 },
-  ]);
-  const [currentUserId, setCurrentUserId] = useState(1);
+    { id: 1, name: 'ユーザー1', posts: 0, light: 0, reactions: 0 },
+    { id: 2, name: 'ユーザー2', posts: 0, light: 0, reactions: 0 },
+    { id: 3, name: 'ユーザー3', posts: 0, light: 0, reactions: 0 },
+  ])
+  const [currentUserId, setCurrentUserId] = useState(1)
 
-  const currentUser = users.find((user) => user.id === currentUserId)!;
+  const currentUser = users.find(user => user.id === currentUserId)!
 
   const updateUserNutrient = (nutrient: keyof User, value: number) => {
-    setUsers((prevUsers) =>
-      prevUsers.map((user) =>
+    setUsers(prevUsers =>
+      prevUsers.map(user =>
         user.id === currentUserId ? { ...user, [nutrient]: value } : user
       )
-    );
-  };
+    )
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-400 to-sky-200 flex flex-col items-center justify-center p-4">
@@ -48,20 +48,21 @@ export default function GrowthGame() {
           <NutrientInput
             label="投稿数"
             value={currentUser.posts}
-            onChange={(value) => updateUserNutrient("posts", value)}
+            onChange={(value) => updateUserNutrient('posts', value)}
           />
           <NutrientInput
             label="光"
             value={currentUser.light}
-            onChange={(value) => updateUserNutrient("light", value)}
+            onChange={(value) => updateUserNutrient('light', value)}
           />
           <NutrientInput
             label="ユーザーの反応"
             value={currentUser.reactions}
-            onChange={(value) => updateUserNutrient("reactions", value)}
+            onChange={(value) => updateUserNutrient('reactions', value)}
           />
         </div>
       </div>
     </div>
-  );
+  )
 }
+
