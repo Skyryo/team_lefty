@@ -78,6 +78,7 @@ function AppWrapper({ children }: { children: React.ReactNode }) {
         style={{
           flex: 1,
           padding: "16px", // メインコンテンツの余白
+          
         }}
       >
         {children}
