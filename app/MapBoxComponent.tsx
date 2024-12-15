@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"; // ここを変更
 import Image from "next/image";
 
 export default function MapBoxComponent() {
-	const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY ?? "";
+	const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY ?? process.env.GOOGLE_MAP_API_KEY;
 	const Router = useRouter();
 	const handleClick = () => {
 		Router.push("/forest");
