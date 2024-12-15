@@ -96,7 +96,7 @@ export default function ShoppingDistrictForest() {
 		}
 	};
 
-	const [districts, setDistricts] = useState(initialData);
+	const districts = initialData;
 	const [currentDistrictId, setCurrentDistrictId] = useState(1);
 	const [loading, setLoading] = useState(true); // ローディング状態を管理
 
