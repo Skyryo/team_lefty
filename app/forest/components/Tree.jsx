@@ -81,7 +81,38 @@ export default function Tree({ shop }) {
   );
 }
 
+
+
+
+
 // 成長度を計算する関数
 function calculateGrowth(shop) {
-  return shop.inputs + shop.posts * 2 + shop.mediaMentions * 3;
+  // Ensure all inputs are numbers and handle undefined/null values
+  const inputs = Number(shop.inputs) || 0;
+  const posts = Number(shop.posts) || 0;
+  const mediaMentions = Number(shop.mediaMentions) || 0;
+  const likes = Number(shop.likes) || 0;
+
+  // Weighted calculation based on logarithmic values
+  const logPosts = Math.log(posts + 1);
+  const logInputs = Math.log(inputs + 1);
+  const logLikes = Math.log(likes + 1);
+
+  // Score calculation based on defined weights
+  const score =
+    0.4 * logPosts + 0.3 * logInputs + 0.2 * mediaMentions + 0.1 * logLikes;
+
+  // Normalizing the score to a 9-level maturity scale
+  const minScore = 0; // Assuming all values are 0
+  const maxScore =
+    0.4 * Math.log(100 + 1) + // Hypothetical max posts
+    0.3 * Math.log(1000 + 1) + // Hypothetical max inputs
+    0.2 * 1 + // Max media mentions (1)
+    0.1 * Math.log(1000 + 1); // Hypothetical max likes
+
+  const maturityLevel = Math.ceil(
+    ((score - minScore) / (maxScore - minScore)) * 9
+  );
+
+  return maturityLevel;
 }
