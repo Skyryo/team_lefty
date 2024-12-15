@@ -137,16 +137,16 @@ function Navigation() {
         fontSize: "1rem",
       }}
     >
-      <a href="#" style={navLinkStyle}>
+      <a href="https://prtimes.jp/" style={navLinkStyle}>
         プレスリリース
       </a>
-      <a href="#" style={navLinkStyle}>
+      <a href="https://prtimes.jp/ranking/" style={navLinkStyle}>
         ランキング
       </a>
       <a href="#" style={navLinkStyle}>
         TV
       </a>
-      <a href="#" style={navLinkStyle}>
+      <a href="https://prtimes.jp/story/" style={navLinkStyle}>
         ストーリー
       </a>
       <a href="/" style={navLinkStyle}>
