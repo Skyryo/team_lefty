@@ -93,7 +93,7 @@ export default function ShoppingDistrictForest() {
   //   return () => clearInterval(interval);
   // }, []);
 
-  const currentDistrict = districts.find((d) => d.id === currentDistrictId);
+	const currentDistrict = districts.find((d) => d.id === currentDistrictId);
 
     if (loading) {
         return (

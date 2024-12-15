@@ -1,37 +1,41 @@
-import { Button } from "@/app/components/ui/button";
+import { Button } from "./ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuTrigger,
-} from "@/app/components/ui/dropdown-menu";
+} from "./ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
 
-export default function ShoppingDistrictSelector({
-	districts,
-	currentDistrictId,
-	onSelectDistrict,
-}) {
-	const currentDistrict = districts.find(
-		(district) => district.id === currentDistrictId
-	);
+interface UserSelectorProps {
+	users: { id: number; name: string }[];
+	currentUserId: number;
+	onSelectUser: (userId: number) => void;
+}
+
+export default function UserSelector({
+	users,
+	currentUserId,
+	onSelectUser,
+}: UserSelectorProps) {
+	const currentUser = users.find((user) => user.id === currentUserId);
 
 	return (
 		<div className="mb-4">
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
 					<Button variant="outline" className="w-full justify-between">
-						{currentDistrict?.name}
+						{currentUser?.name}
 						<ChevronDown className="ml-2 h-4 w-4" />
 					</Button>
 				</DropdownMenuTrigger>
 				<DropdownMenuContent className="w-full">
-					{districts.map((district) => (
+					{users.map((user) => (
 						<DropdownMenuItem
-							key={district.id}
-							onSelect={() => onSelectDistrict(district.id)}
+							key={user.id}
+							onSelect={() => onSelectUser(user.id)}
 						>
-							{district.name}
+							{user.name}
 						</DropdownMenuItem>
 					))}
 				</DropdownMenuContent>
