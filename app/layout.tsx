@@ -50,7 +50,7 @@ export default function RootLayout({
             left: 0,
             width: "100%",
             height: "100%",
-            backgroundColor: "rgba(255, 255, 255, 0.8)", // 半透明の白をオーバーレイ
+            backgroundColor: "rgba(255, 255, 255, 0.6)", // 半透明の白をオーバーレイ
             zIndex: -1, // 背景画像のすぐ上に配置
           }}
         />
