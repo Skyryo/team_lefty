@@ -23,13 +23,29 @@ export default function RootLayout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	return (
-		<html lang="ja">
-			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-			>
-				<AppWrapper>{children}</AppWrapper>
-			</body>
-		</html>
-	);
+  return (
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <header className="bg-gray-800 text-white py-4 px-6 shadow-md">
+          <div className="max-w-7xl mx-auto flex justify-between items-center">
+            <h1 className="text-xl font-bold">サイトタイトル</h1>
+            <nav className="flex space-x-4">
+              <a href="/" className="hover:underline">
+                ホーム
+              </a>
+              <a href="/about" className="hover:underline">
+                About
+              </a>
+              <a href="/contact" className="hover:underline">
+                Contact
+              </a>
+            </nav>
+          </div>
+        </header>
+        <main className="p-6">{children}</main>
+      </body>
+    </html>
+  );
 }
