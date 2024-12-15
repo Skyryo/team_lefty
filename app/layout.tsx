@@ -149,6 +149,9 @@ function Navigation() {
       <a href="#" style={navLinkStyle}>
         ストーリー
       </a>
+      <a href="/" style={navLinkStyle}>
+        まちづくりの森
+      </a>
     </nav>
   );
 }
