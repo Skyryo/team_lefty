@@ -39,33 +39,43 @@ export default function RootLayout({
             style={{
               backgroundColor: "rgb(41, 76, 122)", // 背景色
               color: "white", // テキスト色
-              padding: "8px 16px", // ヘッダー内の余白
-              display: "flex", // フレックスボックスで横並び
-              alignItems: "center", // 縦中央揃え
+              padding: "16px 32px", // ヘッダー全体の余白
+              display: "flex", // 横並び
+              alignItems: "center", // 垂直中央揃え
               justifyContent: "space-between", // 両端揃え
-              width: "100%", // 幅を全体に広げる
+              width: "100%", // 全幅
             }}
           >
-            {/* ロゴとキャッチフレーズ */}
-            <div style={{ display: "flex", flexDirection: "column" }}>
+            {/* 左側のロゴとキャッチフレーズ */}
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "4px" }}
+            >
               <div style={{ fontWeight: "bold", fontSize: "1.5rem" }}>
-                PRTIMES
+                PR TIMES
               </div>
               <div style={{ fontSize: "0.875rem" }}>
                 プレスリリース・ニュースリリース配信サービスのPR TIMES
               </div>
             </div>
 
-            {/* ナビゲーションメニュー */}
+            {/* 中央のナビゲーション */}
             <nav
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: "16px", // ナビゲーション間の隙間
+                gap: "16px", // メニュー項目間の隙間
+                fontSize: "1rem",
               }}
             >
-              <a href="/" style={{ textDecoration: "none", color: "white" }}>
-                地図表示
+              <a
+                href="#"
+                style={{
+                  textDecoration: "none",
+                  color: "white",
+                  fontWeight: "bold",
+                }}
+              >
+                プレスリリース
               </a>
               <a href="#" style={{ textDecoration: "none", color: "white" }}>
                 ランキング
@@ -78,7 +88,7 @@ export default function RootLayout({
               </a>
             </nav>
 
-            {/* 検索ボックス */}
+            {/* 右側の検索ボックス */}
             <div
               style={{
                 display: "flex",
@@ -86,6 +96,9 @@ export default function RootLayout({
                 backgroundColor: "white", // 背景色を白
                 borderRadius: "4px", // 角を丸く
                 padding: "4px 8px", // 内側の余白
+                gap: "8px", // 入力とボタンの間隔
+                maxWidth: "300px", // 最大幅
+                width: "100%", // 幅を自動調整
               }}
             >
               <input
@@ -101,10 +114,10 @@ export default function RootLayout({
               <button
                 style={{
                   backgroundColor: "rgb(41, 76, 122)", // ボタン背景色
-                  color: "white", // テキスト色
+                  color: "white", // ボタンテキスト色
                   border: "none",
                   borderRadius: "4px",
-                  padding: "4px 8px",
+                  padding: "4px 12px",
                   cursor: "pointer",
                 }}
               >
