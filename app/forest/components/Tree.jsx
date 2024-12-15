@@ -56,10 +56,11 @@ export default function Tree({ shop }) {
       </div>
       <div className="mt-4 text-sm text-gray-600">
         <p>
-          インプ数: <span className="font-semibold">{shop.inputs}</span>
+          投稿数: <span
+            className="font-semibold">{JSON.parse(localStorage.getItem(`shop_${shop.id}`)).data.total}</span>
         </p>
         <p>
-          投稿数: <span className="font-semibold">{shop.posts}</span>
+          インプ数: <span className="font-semibold">{shop.inputs}</span>
         </p>
         <p>
           メディア掲載:{" "}
