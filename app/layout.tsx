@@ -86,6 +86,9 @@ export default function RootLayout({
               <a href="#" style={{ textDecoration: "none", color: "white" }}>
                 ストーリー
               </a>
+              <a href="/" style={{ textDecoration: "none", color: "white" }}>
+                商店街の森
+              </a>
             </nav>
 
             {/* 右側の検索ボックス */}
