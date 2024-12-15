@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 export default function History({ district, mappingList }) {
   const mall_id = district.id;
   const shop_ids = mappingList.find((item) => item.map_id === mall_id).shop_ids;
