@@ -6,7 +6,7 @@ export default function AppWrapper(props: HeaderProps) {
 	return (
 		<div
 			className="min-h-screen flex flex-col items-center justify-center p-4"
-			style={{ backgroundColor: "rgb(41, 76, 122)" }} // 背景色を直接指定
+			style={{ backgroundColor: "white" }} // 背景色を直接指定
 		>
 			{children}
 		</div>
