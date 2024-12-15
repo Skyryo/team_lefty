@@ -12,6 +12,7 @@ export default function MapBoxComponent() {
     Router.push("/forest");
   };
 
+  
   return (
     <div
       style={{
@@ -52,6 +53,12 @@ export default function MapBoxComponent() {
             onClick={handleClick}
           >
             <Image src="/forest-max.png" width={120} height={120} alt="木" />
+          </AdvancedMarker>
+          <AdvancedMarker
+            position={{ lat: 35.7029932, lng: 139.6471833 }}
+            onClick={handleClick}
+          >
+            <Image src="/pulse.svg" width={120} height={120} alt="木" />
           </AdvancedMarker>
         </Map>
       </APIProvider>
